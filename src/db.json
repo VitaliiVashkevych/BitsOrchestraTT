@@ -1,0 +1,24 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "category": "Science Fiction",
+      "isbn": "12345678",
+      "status": "inactive",
+      "createdAt": "4 March 2025, 4:36PM",
+      "modifiedAt": "5 March 2025, 7:3PM"
+    },
+    {
+      "id": "2",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "category": "Science Fiction",
+      "isbn": "12345678",
+      "status": "active",
+      "createdAt": "4 March 2025, 4:36PM",
+      "modifiedAt": "5 March 2025, 2:42PM"
+    }
+  ]
+}
