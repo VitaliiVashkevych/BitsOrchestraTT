@@ -3,6 +3,7 @@ import { createId } from "../api";
 import { createdAt, validateForm } from "../func";
 import { Book } from "../types";
 import { useBookContext } from "../hooks/useBookContext";
+import { SERVER_PORT } from "../port";
 
 const EditBook = () => {
   const { handleToast } = useBookContext();
@@ -35,7 +36,7 @@ const EditBook = () => {
     };
 
     try {
-      fetch("http://localhost:3000/books", {
+      fetch(`http://localhost:${SERVER_PORT}/books`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +66,7 @@ const EditBook = () => {
 
     try {
       if (selectedBook) {
-        fetch(`http://localhost:3000/books/${selectedBook.id}`, {
+        fetch(`http://localhost:${SERVER_PORT}/books/${selectedBook.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
