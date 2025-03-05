@@ -13,3 +13,29 @@ export const createdAt = () => {
 
   return `${day} ${month} ${year}, ${hours12}:${minutes}${ampm}`;
 };
+
+export const validateForm = (
+    title: string,
+    author: string,
+    category: string,
+    isbn: string
+  ) => {
+    if (!title.trim()) {
+      alert("Title is required");
+      return false;
+    }
+    if (!author.trim()) {
+      alert("Author is required");
+      return false;
+    }
+    if (!category) {
+      alert("Category is required");
+      return false;
+    }
+    if (isNaN(Number(isbn)) || Number(isbn) <= 0) {
+      alert("Please enter a valid ISBN number.");
+      return false;
+    }
+
+    return true;
+  };

@@ -6,19 +6,19 @@
       "author": "Robert C. Martin",
       "category": "Science Fiction",
       "isbn": "12345678",
-      "status": "inactive",
+      "status": "active",
       "createdAt": "4 March 2025, 4:36PM",
-      "modifiedAt": "5 March 2025, 7:3PM"
+      "modifiedAt": "5 March 2025, 8:10PM"
     },
     {
       "id": "2",
       "title": "Clean Code",
       "author": "Robert C. Martin",
       "category": "Science Fiction",
-      "isbn": "12345678",
+      "isbn": "12345678131",
       "status": "active",
       "createdAt": "4 March 2025, 4:36PM",
-      "modifiedAt": "5 March 2025, 2:42PM"
+      "modifiedAt": "5 March 2025, 8:10PM"
     }
   ]
 }

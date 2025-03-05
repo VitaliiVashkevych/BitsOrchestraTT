@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Routes from "./components/Routes";
 import { Toast } from "./components/Toast";
@@ -11,15 +12,9 @@ const App = () => {
 
         <Routes />
       </div>
-      <footer className="footer">
-        <a
-          href="https://github.com/VitaliiVashkevych"
-          target="__blank"
-          className="footer-link"
-        >
-          Vitalii Vashkevych, GitHub
-        </a>
-      </footer>
+      
+      <Footer />
+
       <Toast />
     </BookContextProvider>
   );

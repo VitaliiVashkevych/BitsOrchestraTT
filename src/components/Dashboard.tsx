@@ -111,8 +111,6 @@ const Dashboard = () => {
           </tbody>
         </table>
       </div>
-
-      
     </>
   );
 };

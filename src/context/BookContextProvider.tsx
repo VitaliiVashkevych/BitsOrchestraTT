@@ -10,12 +10,10 @@ export const BookContextProvider: React.FC<Props> = ({ children }) => {
   const [books, setBooks] = useState<Book[]>([]);
   const [toastIsVisible, setToastIsVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-
   const [visibleBooks, setVisibleBooks] = useState<Book[]>([]);
-
   const [filter, setFilter] = useState("Show Active");
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setFilter(event.target.value);
 
     switch (event.target.value) {

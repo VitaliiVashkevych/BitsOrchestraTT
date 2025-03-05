@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createId } from "../api";
-import { createdAt } from "../func";
+import { createdAt, validateForm } from "../func";
 import { Book } from "../types";
 import { useBookContext } from "../hooks/useBookContext";
 
@@ -15,45 +15,13 @@ const EditBook = () => {
     }
   }, []);
 
-  const validateForm = (
+  const createNewBook = async (
     title: string,
     author: string,
     category: string,
     isbn: string
   ) => {
-    if (!title.trim()) {
-      alert("Title is required");
-      return false;
-    }
-    if (!author.trim()) {
-      alert("Author is required");
-      return false;
-    }
-    if (!category) {
-      alert("Category is required");
-      return false;
-    }
-    if (isNaN(Number(isbn)) || Number(isbn) <= 0) {
-      alert("Please enter a valid ISBN number.");
-      return false;
-    }
-
-    return true;
-  };
-
-  const createNewBook = async (data) => {
     const id = await createId();
-
-    const [title, author, category, isbn] = [
-      data.get("title"),
-      data.get("author"),
-      data.get("category"),
-      data.get("ISBN"),
-    ];
-
-    if (!validateForm(title, author, category, isbn)) {
-      return;
-    }
 
     const newBook = {
       id,
@@ -67,8 +35,6 @@ const EditBook = () => {
     };
 
     try {
-      console.log("fuck you");
-
       fetch("http://localhost:3000/books", {
         method: "POST",
         headers: {
@@ -82,18 +48,12 @@ const EditBook = () => {
     }
   };
 
-  const editSelectedBook = async (data) => {
-    const [title, author, category, isbn] = [
-      data.get("title"),
-      data.get("author"),
-      data.get("category"),
-      data.get("ISBN"),
-    ];
-
-    if (!validateForm(title, author, category, isbn)) {
-      return;
-    }
-
+  const editSelectedBook = async (
+    title: string,
+    author: string,
+    category: string,
+    isbn: string
+  ) => {
     const editedBook = {
       ...selectedBook,
       title,
@@ -104,13 +64,15 @@ const EditBook = () => {
     };
 
     try {
-      fetch(`http://localhost:3000/books/${selectedBook.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(editedBook),
-      });
+      if (selectedBook) {
+        fetch(`http://localhost:3000/books/${selectedBook.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editedBook),
+        });
+      }
       handleToast("edited");
     } catch (error) {
       console.error("Error:", error);
@@ -122,10 +84,21 @@ const EditBook = () => {
 
     const data = new FormData(event.target as HTMLFormElement);
 
+    const [title, author, category, isbn] = [
+      data.get("title") as string,
+      data.get("author") as string,
+      data.get("category") as string,
+      data.get("ISBN") as string,
+    ];
+
+    if (!validateForm(title, author, category, isbn)) {
+      return;
+    }
+
     if (!selectedBook) {
-      createNewBook(data);
+      createNewBook(title, author, category, isbn);
     } else {
-      editSelectedBook(data);
+      editSelectedBook(title, author, category, isbn);
     }
   };
 
@@ -224,7 +197,9 @@ const EditBook = () => {
           />
         </label>
 
-        <button type="submit" className="submitBtn">Submit changes</button>
+        <button type="submit" className="submitBtn">
+          Submit changes
+        </button>
       </form>
     </>
   );
