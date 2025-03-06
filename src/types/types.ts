@@ -19,6 +19,6 @@ export type BookContextType = {
   handleToast: (message: string) => void;
   visibleBooks: Book[];
   filter: string;
-  handleChange: (e) => void;
+  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   setVisibleBooks: (books: Book[]) => void;
 };
