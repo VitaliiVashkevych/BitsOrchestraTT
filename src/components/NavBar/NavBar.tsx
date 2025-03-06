@@ -1,3 +1,5 @@
+import "./NavBar.css";
+
 const NavBar = () => {
   const currentUrl = window.location.pathname;
   const style = {

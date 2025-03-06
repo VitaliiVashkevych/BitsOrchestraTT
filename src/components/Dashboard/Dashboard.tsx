@@ -1,9 +1,10 @@
-import { createdAt } from "../func";
-import { Book } from "../types";
-import { useBookContext } from "../hooks/useBookContext";
+import { createdAt } from "../../functions/functions";
+import { Book } from "../../types/types";
+import { useBookContext } from "../../hooks/useBookContext";
 import { useEffect } from "react";
-import Filter from "./Filter";
-import { SERVER_PORT } from "../port";
+import "./Dashboard.css";
+import Filter from "../Filter/Filter";
+import { DB_PORT } from "../../port";
 
 const Dashboard = () => {
   const {
@@ -24,14 +25,14 @@ const Dashboard = () => {
   };
 
   const handleStatus = async (id: string) => {
-    const response = await fetch(`http://localhost:${SERVER_PORT}/books/${id}`);
+    const response = await fetch(`http://localhost:${DB_PORT}/books/${id}`);
     const data = await response.json();
 
     data.status = data.status === "active" ? "inactive" : "active";
     data.modifiedAt = createdAt();
 
     try {
-      await fetch(`http://localhost:${SERVER_PORT}/books/${id}`, {
+      await fetch(`http://localhost:${DB_PORT}/books/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +53,7 @@ const Dashboard = () => {
 
   const deleteBook = async (id: string) => {
     try {
-      await fetch(`http://localhost:${SERVER_PORT}/books/${id}`, {
+      await fetch(`http://localhost:${DB_PORT}/books/${id}`, {
         method: "DELETE",
       });
       setBooks(books.filter((book) => book.id !== id));

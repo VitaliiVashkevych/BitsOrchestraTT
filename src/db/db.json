@@ -1,0 +1,24 @@
+{
+  "books": [
+    {
+      "id": "2",
+      "title": "TEST",
+      "author": "TEST",
+      "category": "Mystery",
+      "isbn": "12345",
+      "status": "inactive",
+      "createdAt": "5 March 2025, 8:27PM",
+      "modifiedAt": "6 March 2025, 10:52AM"
+    },
+    {
+      "id": "3",
+      "title": "asd",
+      "author": "qwe",
+      "category": "Mystery",
+      "isbn": "1231241414",
+      "status": "active",
+      "createdAt": "6 March 2025, 10:53AM",
+      "modifiedAt": "--"
+    }
+  ]
+}

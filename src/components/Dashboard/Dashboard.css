@@ -1,0 +1,54 @@
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+thead {
+  background-color: #bca37f;
+  font-weight: bold;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #bca37f;
+}
+
+th[scope="col"] {
+  color: #333;
+}
+
+tbody tr {
+  border-bottom: 1px solid #bca37f;
+  background: #ead7bb;
+}
+
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #bca37f;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    background-color: #113946;
+    color: #fff2d8;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+}

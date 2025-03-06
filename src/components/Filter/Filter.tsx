@@ -1,4 +1,5 @@
-import { useBookContext } from "../hooks/useBookContext";
+import { useBookContext } from "../../hooks/useBookContext";
+import "./Filter.css";
 
 const Filter = () => {
   const { filter, handleChange } = useBookContext();

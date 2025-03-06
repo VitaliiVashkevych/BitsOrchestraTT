@@ -1,0 +1,19 @@
+.toast {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #113946;
+  color: #fff2d8;
+  z-index: 1000;
+  transition: transform 0.5s;
+  transform: translateY(-100%);
+}
+.active {
+  transform: translateY(0);
+}
+.toast-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,6 +1,6 @@
 import CustomRoute from "./CustomRoute";
-import Dashboard from "./Dashboard";
-import EditBook from "./EditBook";
+import Dashboard from "./Dashboard/Dashboard";
+import EditBook from "./EditBook/EditBook";
 
 const Routes = () => {
   return (

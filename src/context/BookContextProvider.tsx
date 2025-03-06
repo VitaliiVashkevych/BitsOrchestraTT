@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Book } from "../types";
+import { Book } from "../types/types";
 import { BookContext } from "./BookContext";
-import { SERVER_PORT } from "../port";
+import { DB_PORT } from "../port";
 
 type Props = {
   children: React.ReactNode;
@@ -45,7 +45,7 @@ export const BookContextProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch(`http://localhost:${SERVER_PORT}/books`);
+      const response = await fetch(`http://localhost:${DB_PORT}/books`);
       const data = await response.json();
       setBooks(data);
       setVisibleBooks(data.filter((book: Book) => book.status === "active"));

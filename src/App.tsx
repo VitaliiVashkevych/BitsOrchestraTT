@@ -1,7 +1,7 @@
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import Footer from "./components/Footer/Footer";
+import NavBar from "./components/NavBar/NavBar";
 import Routes from "./components/Routes";
-import { Toast } from "./components/Toast";
+import { Toast } from "./components/Toast/Toast";
 import { BookContextProvider } from "./context/BookContextProvider";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
 
         <Routes />
       </div>
-      
+
       <Footer />
 
       <Toast />

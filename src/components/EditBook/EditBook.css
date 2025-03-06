@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input {
+  width: 100%;
+  margin-top: 4px;
+  background: rgba(17, 57, 70, 0.1);
+  border-radius: 8px;
+  border: 2px solid rgba(17, 57, 70, 0.8);
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-clip: content-box;
+  border: 2px solid rgba(17, 57, 70, 0.8);
+  background-color: rgba(17, 57, 70, 0.1);
+}
+
+input[type="radio"]:checked {
+  background-color: rgba(17, 57, 70, 0.8);
+  padding: 2px;
+  border: 2px solid rgba(17, 57, 70, 0.8);
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitBtn {
+  border: 0;
+  height: 32px;
+  background-color: #113946;
+  color: #fff2d8;
+  border-radius: 8px;
+}

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { createId } from "../api";
-import { createdAt, validateForm } from "../func";
-import { Book } from "../types";
-import { useBookContext } from "../hooks/useBookContext";
-import { SERVER_PORT } from "../port";
+import { createdAt, createId, validateForm } from "../../functions/functions";
+import { Book } from "../../types/types";
+import { useBookContext } from "../../hooks/useBookContext";
+import { DB_PORT } from "../../port";
+import "./EditBook.css";
 
 const EditBook = () => {
   const { handleToast } = useBookContext();
@@ -36,7 +36,7 @@ const EditBook = () => {
     };
 
     try {
-      fetch(`http://localhost:${SERVER_PORT}/books`, {
+      fetch(`http://localhost:${DB_PORT}/books`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const EditBook = () => {
 
     try {
       if (selectedBook) {
-        fetch(`http://localhost:${SERVER_PORT}/books/${selectedBook.id}`, {
+        fetch(`http://localhost:${DB_PORT}/books/${selectedBook.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

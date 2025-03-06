@@ -1,4 +1,5 @@
-import { useBookContext } from "../hooks/useBookContext";
+import { useBookContext } from "../../hooks/useBookContext";
+import "./Toast.css";
 
 export const Toast = () => {
   const { toastMessage } = useBookContext();
